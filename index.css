@@ -1,13 +1,14 @@
-body {
+/* body {
 	background-color: teal;
-}
+} */
 .container {
 	padding: 1cm 4cm;
-	border: 2px solid black;
+	/* border: 2px solid black; */
 }
 .card {
 	margin-bottom: 1cm;
-	border-radius: 0px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px slategray;
 }
 .card .card-title {
 	padding: 0.5cm 0;
@@ -26,26 +27,32 @@ body {
 .form-control {
 	border-color: teal;
 	width: 50%;
-	border-radius: 0px;
+	border-radius: 5px;
 }
 .form-control:focus {
-	border: 3px solid teal;
+	border: 2px solid teal;
 	outline: 0;
 	box-shadow: 0 0 0 0;
 }
 li {
-	margin: 0;
+	margin-bottom: 5px;
 	padding: 10px 40px;
-	background-color: white;
-	/* background-color: yellow; */
 	font-size: 22px;
 	font-weight: 400;
 	list-style: none;
-	display: block;
+	border-radius: 10px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
 }
-.list-group-item:first-child,
-.list-group-item:last-child {
-	border-radius: 0px;
+li:hover {
+	box-shadow: 0 0 10px slategray;
+}
+#timeSpan {
+	float: right;
+	margin-right: 10px;
+	color: slategrey;
+	font-size: 20px;
+	margin-top: 2px;
 }
 button {
 	background-color: transparent;

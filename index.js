@@ -1,23 +1,26 @@
 const addTodo = document.getElementById("addBtn");
 const input = document.getElementById("inputtext");
-var ul = document.getElementById("mylist");
+var mylist = document.getElementById("mylist");
 var li = document.querySelectorAll("#mylist li");
-var deleteTodo = document.getElementById("delete");
-var remov = document.getElementsByClassName("fa-trash");
+
+input.addEventListener("keypress", function () {
+	input.style.border = "2px solid teal";
+});
 
 addTodo.addEventListener("click", function () {
 	if (input.value == "") {
-		input.addEventListener("keypress", function () {
-			input.style.border = "3px solid teal";
-		});
-		input.style.border = "3px solid red";
+		input.style.border = "2px solid red";
 	} else {
 		var listTag = document.createElement("li");
-		listTag.setAttribute("id", "listItem");
-		listTag.setAttribute("class", "list-group-item");
+		// listTag.setAttribute("id", "listItem");
+		// listTag.setAttribute("class", "list-group-item");
 
 		var listPara = document.createElement("p");
-		listPara.textContent = input.value;
+		listPara.innerText = input.value;
+
+		var timeSpan = document.createElement("span");
+		timeSpan.setAttribute("id", "timeSpan");
+		timeSpan.innerText = Time();
 
 		var deleteButton = document.createElement("button");
 		// deleteIcon.setAttribute("class", "close btn btn-close");
@@ -28,15 +31,18 @@ addTodo.addEventListener("click", function () {
 		deleteIcon.setAttribute("class", "fas fa-trash");
 		deleteIcon.setAttribute("id", "delete");
 
-		// deleteIcon.innerHTML = "&times";
+		listPara.innerText.trim();
+		listTag.innerText.trim();
 
 		deleteButton.appendChild(deleteIcon);
 		listTag.appendChild(listPara);
 		listTag.appendChild(deleteButton);
-		ul.appendChild(listTag);
+		listTag.appendChild(timeSpan);
+		mylist.appendChild(listTag);
 
-		input.style.border = "3px solid teal";
+		input.style.border = "1px solid teal";
 		input.value = "";
+		console.log(listPara.innerText.trim());
 	}
 
 	deleteButton.addEventListener("click", function () {
@@ -44,29 +50,22 @@ addTodo.addEventListener("click", function () {
 	});
 });
 
-// if (ul.children >= 1) {
-// 	deleteTodo.addEventListener("click", function () {
-// 		ul.removeChild(li);
-// 	});
-// }
+function Time() {
+	let date = new Date();
+	let hour = date.getHours();
+	let minutes = date.getMinutes();
+	let time;
 
-// ul.addEventListener("click", removeEvent);
-// function removeEvent(e) {
-// 	if (e.target.classList.contains("fa-trash")) {
-// 		ul.removeChild(e.target.parentElement);
-// 		// card.removeChild(card);
-// 		ul.removeChild(li);
-// 	}
-// }
+	if (minutes < 10) {
+		minutes = "0" + minutes;
+	}
+	hour = hour % 12;
+	hour = hour ? hour : 12;
 
-// if (card.hasChildNodes) {
-// 	deleteTodo.addEventListener("click", function () {
-// 		var listTag = document.getElementById("listItem");
-// 		listTag.remove();
-// 	});
-// }
-// deleteTodo.addEventListener("click", function () {
-// 	document.getElementById("listItem").remove();
-// });
-
-// console.log(card.children);
+	if (date.getHours() >= 12) {
+		time = hour + " : " + minutes + " pm";
+	} else {
+		time = hour + " : " + minutes + " am";
+	}
+	return time;
+}
