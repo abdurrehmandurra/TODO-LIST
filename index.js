@@ -12,8 +12,6 @@ addTodo.addEventListener("click", function () {
 		input.style.border = "2px solid red";
 	} else {
 		var listTag = document.createElement("li");
-		// listTag.setAttribute("id", "listItem");
-		// listTag.setAttribute("class", "list-group-item");
 
 		var listPara = document.createElement("p");
 		listPara.innerText = input.value;
@@ -23,9 +21,6 @@ addTodo.addEventListener("click", function () {
 		timeSpan.innerText = Time();
 
 		var deleteButton = document.createElement("button");
-		// deleteIcon.setAttribute("class", "close btn btn-close");
-		// deleteIcon.setAttribute("id", "delete");
-		// deleteIcon.innerHTML = "&times";
 
 		let deleteIcon = document.createElement("i");
 		deleteIcon.setAttribute("class", "fas fa-trash");
