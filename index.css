@@ -1,6 +1,6 @@
-/* body {
-	background-color: teal;
-} */
+body {
+	background-color: rgba(21, 13, 28, 0.85);
+}
 .container {
 	padding: 1cm 4cm;
 	/* border: 2px solid black; */
@@ -8,13 +8,12 @@
 .card {
 	margin-bottom: 1cm;
 	border-radius: 5px;
-	box-shadow: 0 0 10px slategray;
+	box-shadow: 0 0 5px white;
 }
 .card .card-title {
 	padding: 0.5cm 0;
 	font-weight: 300;
 	font-size: 50px;
-	/* background-color: #46529d; */
 	text-align: center;
 	margin: 0;
 	color: teal;
@@ -31,21 +30,32 @@
 }
 .form-control:focus {
 	border: 2px solid teal;
-	outline: 0;
-	box-shadow: 0 0 0 0;
+	outline: none;
+	box-shadow: none;
+}
+a#addBtn {
+	color: white;
+}
+.btn-success:focus {
+	box-shadow: none;
+}
+.btn:focus {
+	box-shadow: none;
+	outline: none;
 }
 li {
 	margin-bottom: 5px;
-	padding: 10px 40px;
-	font-size: 22px;
+	padding: 10px 20px;
+	font-size: 20px;
 	font-weight: 400;
 	list-style: none;
 	border-radius: 10px;
-	border: 1px solid lightgray;
+	border: 1px solid white;
 	border-radius: 5px;
+	background-color: white;
 }
 li:hover {
-	box-shadow: 0 0 10px slategray;
+	box-shadow: 0 0 5px white;
 }
 #timeSpan {
 	float: right;

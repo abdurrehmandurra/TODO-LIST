@@ -26,23 +26,19 @@ addTodo.addEventListener("click", function () {
 		deleteIcon.setAttribute("class", "fas fa-trash");
 		deleteIcon.setAttribute("id", "delete");
 
-		listPara.innerText.trim();
-		listTag.innerText.trim();
-
 		deleteButton.appendChild(deleteIcon);
 		listTag.appendChild(listPara);
 		listTag.appendChild(deleteButton);
 		listTag.appendChild(timeSpan);
 		mylist.appendChild(listTag);
 
-		input.style.border = "1px solid teal";
+		input.style.border = "2px solid teal";
 		input.value = "";
-		console.log(listPara.innerText.trim());
-	}
 
-	deleteButton.addEventListener("click", function () {
-		listTag.remove();
-	});
+		deleteButton.addEventListener("click", function () {
+			listTag.remove();
+		});
+	}
 });
 
 function Time() {
