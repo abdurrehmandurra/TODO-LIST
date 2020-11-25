@@ -1,51 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap");
+
+body {
+	font-family: "Roboto slab", serif;
+}
+
+#upperBox {
+	/* background-color: #5f5f6d; */
+	background-image: radial-gradient(
+		circle farthest-corner at 10% 20%,
+		rgba(147, 230, 241, 1) 0%,
+		rgba(145, 192, 241, 1) 45.5%
+	);
+}
 .container {
 	padding: 1cm 4cm;
-	/* border: 2px solid black; */
 }
 .card {
+	border-radius: 0px;
 	margin-bottom: 1cm;
-	border-radius: 5px;
-	box-shadow: 0 0 5px 1px #eaeaea;
+	/* box-shadow: 0 0 5px 1px #eaeaea; */
 }
 .card .card-title {
 	padding: 0.5cm 0;
-	font-weight: 300;
+	font-weight: 700;
 	font-size: 50px;
 	text-align: center;
-	color: teal;
 }
 #input {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-.form-control {
-	border-color: teal;
-	width: 50%;
-	border-radius: 5px;
+input.form-control {
+	border-color: #378eeb;
+	width: 70%;
+	border-radius: 0;
 }
-.form-control:focus {
-	border: 2px solid teal;
+input.form-control:focus {
+	color: black;
+	border: 2px solid #0978ee;
 	outline: none;
 	box-shadow: none;
+}
+.form-control::placeholder {
+	opacity: 0.3;
 }
 a#addBtn {
 	color: white;
+	background-color: rgba(92, 123, 237, 1);
 }
-.btn-success:focus {
-	box-shadow: none;
-}
-.btn:focus {
+a#addBtn:hover {
 	box-shadow: none;
 	outline: none;
+	background-color: rgba(147, 186, 252);
 }
 li {
+	border: 1px solid rgba(92, 123, 237, 1);
+	border-left: 10px solid rgba(92, 123, 237, 1);
 	margin-bottom: 8px;
 	padding: 10px 20px;
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: 400;
 	list-style: none;
-	border-radius: 3px;
 	cursor: pointer;
 	word-wrap: unset;
 	word-break: break-all;
@@ -55,15 +71,10 @@ li {
 li:hover {
 	background-color: rgb(241, 239, 239);
 }
-
-/* input[type="checkbox"] + lable {
-	border: 2px solid red;
-} */
-
 .timeSpan {
 	float: right;
 	margin-right: 10px;
-	color: slategrey;
+	color: #708090;
 	font-size: 20px;
 	margin-top: 2px;
 }
@@ -80,7 +91,6 @@ button:focus {
 .fa-trash:hover {
 	color: red;
 }
-p,
 button {
 	display: inline;
 }

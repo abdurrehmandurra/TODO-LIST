@@ -19,33 +19,38 @@
 		<title>Todo List</title>
 	</head>
 	<body>
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="card" id="card">
-						<h1 class="card-title">Todo List</h1>
-						<div class="card-body">
-							<div id="input">
-								<input
-									type="text"
-									class="form-control"
-									id="inputtext"
-								/>
-								<a
-									type="submit"
-									class="btn btn-success btn-lg mt-4"
-									id="addBtn"
-								>
-									Add Todo
-								</a>
+		<section id="upperBox">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="card" id="card">
+							<h1 class="card-title">Todo List</h1>
+							<div class="card-body">
+								<div id="input">
+									<input
+										type="text"
+										class="form-control form-control-lg"
+										id="inputtext"
+										placeholder="Add New Todo"
+									/>
+									<a type="submit" class="btn-lg mt-4" id="addBtn"> Add Todo </a>
+								</div>
 							</div>
 						</div>
 					</div>
-
-					<div id="mylist"></div>
 				</div>
 			</div>
-		</div>
+		</section>
+
+		<section id="lowerBox">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div id="mylist"></div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 		<script src="./index.js"></script>
 	</body>

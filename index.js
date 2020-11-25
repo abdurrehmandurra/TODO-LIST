@@ -7,9 +7,16 @@ function loadEventListeners() {
 	document.addEventListener("DOMContentLoaded", todoItems);
 }
 
+// input.onfocus = inputColor;
+// input.on;
+// function inputColor() {
+// 	input.style.border = "2px solid #0978ee";
+// }
+// input.style.border = "1px solid #378eeb";
+
 input.onkeypress = InputError;
 function InputError() {
-	input.style.border = "2px solid teal";
+	input.style.border = "2px solid #0978ee";
 }
 function todoItems() {
 	let todos;
@@ -28,32 +35,36 @@ function todoItems() {
 			listTag.appendChild(chkBox);
 			listTag.appendChild(document.createTextNode(task));
 
-			chkBox.style.backgroundColor = "red";
-
-			chkBox.addEventListener("click", function () {
-				if (chkBox.checked == true) {
-					listTag.style.backgroundColor = "#eaeaea";
-					listTag.style.boxShadow = "0 0 3px 2px #eaeaea";
-					listTag.style.color = "lightgray";
-				} else {
-					listTag.style.boxShadow = `0 0 3px 2px ${RandomColorGenerator()}`;
-					listTag.style.backgroundColor = "white";
-					listTag.style.color = "black";
-				}
-			});
-
 			let div = document.createElement("div");
 
-			var timeSpan = document.createElement("span");
+			let timeSpan = document.createElement("span");
 			timeSpan.setAttribute("class", "timeSpan");
 			timeSpan.innerText = Time();
 
-			var deleteButton = document.createElement("button");
+			let deleteButton = document.createElement("button");
 
 			let deleteIcon = document.createElement("i");
 			deleteIcon.setAttribute("class", "fas fa-trash");
 			deleteIcon.setAttribute("id", "delete");
 			deleteIcon.onclick = RemoveList;
+
+			chkBox.addEventListener("click", function () {
+				if (chkBox.checked == true) {
+					// listTag.style.backgroundColor = "#eaeaea";
+					// listTag.style.boxShadow = "0 0 3px 2px #eaeaea";
+					// listTag.style.color = "lightgray";
+					listTag.style.opacity = "0.2";
+					// timeSpan.style.color = "lightgray";
+					// deleteIcon.style.color = "lightgray";
+				} else {
+					// listTag.style.boxShadow = `0 0 3px 2px ${RandomColorGenerator()}`;
+					listTag.style.opacity = "1";
+					// listTag.style.backgroundColor = "white";
+					// listTag.style.color = "black";
+					// timeSpan.style.color = "#708090";
+					// deleteIcon.style.color = "black";
+				}
+			});
 
 			deleteButton.appendChild(deleteIcon);
 			div.appendChild(deleteButton);
@@ -77,21 +88,13 @@ addTodo.addEventListener("click", function (e) {
 		listTag.appendChild(chkBox);
 		listTag.appendChild(document.createTextNode(input.value));
 
-		chkBox.addEventListener("click", function () {
-			if (chkBox.checked == true) {
-				listTag.style.color = "lightgray";
-			} else {
-				listTag.style.color = "black";
-			}
-		});
-
 		let div = document.createElement("div");
 
-		var timeSpan = document.createElement("span");
+		let timeSpan = document.createElement("span");
 		timeSpan.setAttribute("class", "timeSpan");
 		timeSpan.innerText = Time();
 
-		var deleteButton = document.createElement("button");
+		let deleteButton = document.createElement("button");
 
 		let deleteIcon = document.createElement("i");
 		deleteIcon.setAttribute("class", "fas fa-trash");
@@ -104,9 +107,10 @@ addTodo.addEventListener("click", function (e) {
 		listTag.appendChild(div);
 		mylist.appendChild(listTag);
 
-		input.style.border = "2px solid teal";
+		input.style.border = "1px solid #378eeb";
 		input.value = "";
 	}
+	input.style.border = "1px solid #378eeb";
 });
 
 // Removing List
@@ -136,8 +140,8 @@ function removeFromLocalSorage(todo) {
 
 // Creating List Tag
 function ListTag() {
-	var listTag = document.createElement("li");
-	listTag.style.boxShadow = `0 0 3px 2px ${RandomColorGenerator()}`;
+	// var rgb = RandomColorGenerator();
+	let listTag = document.createElement("li");
 	return listTag;
 }
 
@@ -145,9 +149,9 @@ function ListTag() {
 function check() {
 	let checkBox = document.createElement("input");
 	checkBox.setAttribute("type", "checkbox");
-	checkBox.setAttribute("id", "checkbox");
-	checkBox.className = "checkbox-custom";
 	checkBox.style.marginRight = "5px";
+	checkBox.style.display = "flex";
+	checkBox.style.justifyContent = "center";
 	return checkBox;
 }
 
