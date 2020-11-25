@@ -150,8 +150,6 @@ function check() {
 	let checkBox = document.createElement("input");
 	checkBox.setAttribute("type", "checkbox");
 	checkBox.style.marginRight = "5px";
-	checkBox.style.display = "flex";
-	checkBox.style.justifyContent = "center";
 	return checkBox;
 }
 
