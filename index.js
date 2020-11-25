@@ -1,7 +1,6 @@
 const addTodo = document.getElementById("addBtn");
 const input = document.getElementById("inputtext");
 const mylist = document.getElementById("mylist");
-// var li = document.querySelectorAll("#mylist li");
 
 loadEventListeners();
 function loadEventListeners() {
@@ -43,6 +42,8 @@ function todoItems() {
 				}
 			});
 
+			let div = document.createElement("div");
+
 			var timeSpan = document.createElement("span");
 			timeSpan.setAttribute("class", "timeSpan");
 			timeSpan.innerText = Time();
@@ -55,8 +56,9 @@ function todoItems() {
 			deleteIcon.onclick = RemoveList;
 
 			deleteButton.appendChild(deleteIcon);
-			listTag.appendChild(deleteButton);
-			listTag.appendChild(timeSpan);
+			div.appendChild(deleteButton);
+			div.appendChild(timeSpan);
+			listTag.appendChild(div);
 			mylist.appendChild(listTag);
 		});
 	}
@@ -83,6 +85,8 @@ addTodo.addEventListener("click", function (e) {
 			}
 		});
 
+		let div = document.createElement("div");
+
 		var timeSpan = document.createElement("span");
 		timeSpan.setAttribute("class", "timeSpan");
 		timeSpan.innerText = Time();
@@ -95,8 +99,9 @@ addTodo.addEventListener("click", function (e) {
 		deleteIcon.onclick = RemoveList;
 
 		deleteButton.appendChild(deleteIcon);
-		listTag.appendChild(deleteButton);
-		listTag.appendChild(timeSpan);
+		div.appendChild(deleteButton);
+		div.appendChild(timeSpan);
+		listTag.appendChild(div);
 		mylist.appendChild(listTag);
 
 		input.style.border = "2px solid teal";
@@ -107,15 +112,14 @@ addTodo.addEventListener("click", function (e) {
 // Removing List
 function RemoveList(e) {
 	if (e.target.classList.contains("fa-trash")) {
-		e.target.parentElement.parentElement.children[2].remove();
-		e.target.parentElement.parentElement.remove();
-		removeFromLocalSorage(e.target.parentElement.parentElement);
+		e.target.parentElement.nextSibling.remove();
+		e.target.parentElement.parentElement.parentElement.remove();
+		removeFromLocalSorage(e.target.parentElement.parentElement.parentElement);
 	}
 }
 
 // Removing From Local Storage
 function removeFromLocalSorage(todo) {
-	console.log(todo);
 	let todos;
 	if (localStorage.getItem("todos") === null) {
 		todos = [];
@@ -130,21 +134,14 @@ function removeFromLocalSorage(todo) {
 	localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-// const data = localStorage.getItem("todos");
-// const to = JSON.parse(data);
-// to.forEach(function (task) {
-// 	// if (todos.values === null) {
-// 	// 	console.log("sorry");
-// 	// }
-// 	console.log(task);
-// });
-
+// Creating List Tag
 function ListTag() {
 	var listTag = document.createElement("li");
 	listTag.style.boxShadow = `0 0 3px 2px ${RandomColorGenerator()}`;
 	return listTag;
 }
 
+// Creating CheckBox
 function check() {
 	let checkBox = document.createElement("input");
 	checkBox.setAttribute("type", "checkbox");
@@ -154,24 +151,7 @@ function check() {
 	return checkBox;
 }
 
-// function check() {
-// 	let listTag = ListTag();
-// 	console.log(listTag.children[0]);
-// 	console.log(listTag.children[0].checked);
-// 	if ((document.getElementById("checkbox").checked = true)) {
-// 		listTag.style.color = "red";
-// 	}
-// 	if ((document.getElementById("checkbox").checked = false)) {
-// 		listTag.style.color = "green";
-// 	}
-// }
-
-// function ListParagraph() {
-// 	var listPara = document.createElement("p");
-// 	listPara.style.paddingLeft = "5px";
-// 	return listPara;
-// }
-
+// Getting Time
 function Time() {
 	let date = new Date();
 	let hour = date.getHours();

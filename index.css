@@ -47,14 +47,18 @@ li {
 	list-style: none;
 	border-radius: 3px;
 	cursor: pointer;
+	word-wrap: unset;
+	word-break: break-all;
+	overflow-wrap: anywhere;
+	overflow: hidden;
 }
 li:hover {
-	background-color: rgb(235, 229, 229);
+	background-color: rgb(241, 239, 239);
 }
 
-input[type="checkbox"] + lable {
+/* input[type="checkbox"] + lable {
 	border: 2px solid red;
-}
+} */
 
 .timeSpan {
 	float: right;
