@@ -7,13 +7,6 @@ function loadEventListeners() {
 	document.addEventListener("DOMContentLoaded", todoItems);
 }
 
-// input.onfocus = inputColor;
-// input.on;
-// function inputColor() {
-// 	input.style.border = "2px solid #0978ee";
-// }
-// input.style.border = "1px solid #378eeb";
-
 input.onkeypress = InputError;
 function InputError() {
 	input.style.border = "2px solid #0978ee";
@@ -50,19 +43,9 @@ function todoItems() {
 
 			chkBox.addEventListener("click", function () {
 				if (chkBox.checked == true) {
-					// listTag.style.backgroundColor = "#eaeaea";
-					// listTag.style.boxShadow = "0 0 3px 2px #eaeaea";
-					// listTag.style.color = "lightgray";
 					listTag.style.opacity = "0.2";
-					// timeSpan.style.color = "lightgray";
-					// deleteIcon.style.color = "lightgray";
 				} else {
-					// listTag.style.boxShadow = `0 0 3px 2px ${RandomColorGenerator()}`;
 					listTag.style.opacity = "1";
-					// listTag.style.backgroundColor = "white";
-					// listTag.style.color = "black";
-					// timeSpan.style.color = "#708090";
-					// deleteIcon.style.color = "black";
 				}
 			});
 
