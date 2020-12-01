@@ -1,22 +1,13 @@
 const addTodo = document.getElementById("addBtn");
 const input = document.getElementById("inputtext");
 const mylist = document.getElementById("mylist");
-// const chk = document.querySelector("input[type=checkbox");
-
-// chk.addEventListener("click", function () {
-// 	if (chk.checked) {
-// 		console.log("asjkdflk");
-// 	} else {
-// 		console.log("no checked");
-// 	}
-// });
 
 loadEventListeners();
 function loadEventListeners() {
 	document.addEventListener("DOMContentLoaded", todoItems);
-	document.addEventListener("DOMContentLoaded", addTodo);
-	document.addEventListener("DOMContentLoaded", ListTag);
-	document.addEventListener("DOMContentLoaded", check);
+	// document.addEventListener("DOMContentLoaded", addTodo);
+	// document.addEventListener("DOMContentLoaded", ListTag);
+	// document.addEventListener("DOMContentLoaded", check);
 }
 
 input.onkeypress = InputError;
@@ -83,6 +74,14 @@ addTodo.addEventListener("click", function () {
 		listTag.appendChild(chkBox);
 		listTag.appendChild(document.createTextNode(input.value));
 
+		chkBox.addEventListener("click", function () {
+			if (chkBox.checked == true) {
+				listTag.style.opacity = "0.2";
+			} else {
+				listTag.style.opacity = "1";
+			}
+		});
+
 		let div = document.createElement("div");
 
 		let timeSpan = document.createElement("span");
@@ -101,14 +100,6 @@ addTodo.addEventListener("click", function () {
 		div.appendChild(timeSpan);
 		listTag.appendChild(div);
 		mylist.appendChild(listTag);
-
-		chkBox.addEventListener("click", function () {
-			if (chkBox.checked == true) {
-				listTag.style.opacity = "0.2";
-			} else {
-				listTag.style.opacity = "1";
-			}
-		});
 
 		input.style.border = "1px solid #378eeb";
 		input.value = "";
