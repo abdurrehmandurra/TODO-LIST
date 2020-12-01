@@ -5,7 +5,7 @@ const mylist = document.getElementById("mylist");
 loadEventListeners();
 function loadEventListeners() {
 	document.addEventListener("DOMContentLoaded", todoItems);
-	// document.addEventListener("DOMContentLoaded", addTodo);
+	document.addEventListener("DOMContentLoaded", addTodo);
 	// document.addEventListener("DOMContentLoaded", ListTag);
 	// document.addEventListener("DOMContentLoaded", check);
 }
