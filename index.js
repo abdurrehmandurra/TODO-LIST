@@ -1,10 +1,22 @@
 const addTodo = document.getElementById("addBtn");
 const input = document.getElementById("inputtext");
 const mylist = document.getElementById("mylist");
+// const chk = document.querySelector("input[type=checkbox");
+
+// chk.addEventListener("click", function () {
+// 	if (chk.checked) {
+// 		console.log("asjkdflk");
+// 	} else {
+// 		console.log("no checked");
+// 	}
+// });
 
 loadEventListeners();
 function loadEventListeners() {
 	document.addEventListener("DOMContentLoaded", todoItems);
+	document.addEventListener("DOMContentLoaded", addTodo);
+	document.addEventListener("DOMContentLoaded", ListTag);
+	document.addEventListener("DOMContentLoaded", check);
 }
 
 input.onkeypress = InputError;
@@ -41,14 +53,6 @@ function todoItems() {
 			deleteIcon.setAttribute("id", "delete");
 			deleteIcon.onclick = RemoveList;
 
-			chkBox.addEventListener("click", function () {
-				if (chkBox.checked == true) {
-					listTag.style.opacity = "0.2";
-				} else {
-					listTag.style.opacity = "1";
-				}
-			});
-
 			deleteButton.appendChild(deleteIcon);
 			div.appendChild(deleteButton);
 			div.appendChild(timeSpan);
@@ -59,7 +63,7 @@ function todoItems() {
 }
 
 const todos = [];
-addTodo.addEventListener("click", function (e) {
+addTodo.addEventListener("click", function () {
 	if (input.value == "") {
 		input.style.border = "2px solid red";
 	} else {
@@ -89,6 +93,14 @@ addTodo.addEventListener("click", function (e) {
 		div.appendChild(timeSpan);
 		listTag.appendChild(div);
 		mylist.appendChild(listTag);
+
+		chkBox.addEventListener("click", function () {
+			if (chkBox.checked == true) {
+				listTag.style.opacity = "0.2";
+			} else {
+				listTag.style.opacity = "1";
+			}
+		});
 
 		input.style.border = "1px solid #378eeb";
 		input.value = "";
