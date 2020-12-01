@@ -40,6 +40,14 @@ function todoItems() {
 			listTag.appendChild(chkBox);
 			listTag.appendChild(document.createTextNode(task));
 
+			chkBox.addEventListener("click", function () {
+				if (chkBox.checked == true) {
+					listTag.style.opacity = "0.2";
+				} else {
+					listTag.style.opacity = "1";
+				}
+			});
+
 			let div = document.createElement("div");
 
 			let timeSpan = document.createElement("span");
